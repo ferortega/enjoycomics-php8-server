@@ -1,6 +1,5 @@
 name: Build and Push to Docker Hub
 
-# Se ejecuta cada vez que haces push a la rama 'main'
 on:
   push:
     branches:
@@ -31,7 +30,9 @@ jobs:
         with:
           context: .
           push: true
-          platforms: linux/amd64,linux/arm64
-	  tags: |
+          platforms: |
+            linux/amd64
+            linux/arm64
+          tags: |
             fortega/enjoycomics-php8-server:latest
             fortega/enjoycomics-php8-server:${{ github.sha }}
